@@ -1,0 +1,22 @@
+{
+  "extends": "airbnb",
+  "rules": {
+    "import/no-unresolved": 0,
+    "no-underscore-dangle": 0,
+    "no-alert": 0,
+    "no-console": 0,
+    "no-constant-condition": 0,
+    "import/extensions": ["off", "never"],
+    "react/jsx-filename-extension": 0
+  },
+  "parserOptions": {
+    "ecmaVersion": 2015,
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true
+    }
+  },
+  "globals": {
+    "document": true,
+    "window": true
+  }
+}
