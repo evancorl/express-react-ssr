@@ -1,14 +1,16 @@
 import { join } from 'path';
 import webpack from 'webpack';
 
+import directories from './src/config/directories';
+
 const webpackConfig = {
   entry: [
     'webpack-hot-middleware/client',
-    join(__dirname, 'src/client/index.js'),
+    join(directories.src, 'client/index.js'),
   ],
   output: {
     filename: 'bundle.js',
-    path: join(__dirname, 'public'),
+    path: directories.public,
     publicPath: '/public/',
   },
   plugins: [
@@ -19,19 +21,19 @@ const webpackConfig = {
       test: /\.jsx?$/,
       loader: 'eslint-loader',
       exclude: /node_modules/,
-      include: join(__dirname, 'src'),
+      include: directories.src,
     }],
     loaders: [
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         loaders: ['react-hot', 'babel-loader'],
-        include: join(__dirname, 'src'),
+        include: directories.src,
       },
     ],
   },
   resolve: {
-    root: join(__dirname, 'src'),
+    root: directories.src,
     extensions: ['', '.js', '.jsx', '.json'],
   },
 };
