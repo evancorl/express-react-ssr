@@ -3,9 +3,9 @@ import webpack from 'webpack';
 
 import directories from './src/config/directories';
 
-const webpackConfig = {
+const webpackDefaultConfig = {
   entry: [
-    'webpack-hot-middleware/client',
+    'babel-polyfill',
     join(directories.src, 'client/index.js'),
   ],
   output: {
@@ -14,7 +14,7 @@ const webpackConfig = {
     publicPath: '/public/',
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
+    new webpack.optimize.OccurrenceOrderPlugin(),
   ],
   module: {
     preLoaders: [{
@@ -38,4 +38,4 @@ const webpackConfig = {
   },
 };
 
-export default webpackConfig;
+export default webpackDefaultConfig;
