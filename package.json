@@ -1,14 +1,15 @@
 {
-  "name": "rr4",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "rube",
+  "version": "0.0.1",
+  "description": "Rube",
+  "main": "./server.js",
   "scripts": {
+    "lint": "eslint . --ext .js",
     "dev": "NODE_ENV=development; node server.js",
     "start": "NODE_ENV=production; node server.js"
   },
-  "keywords": [],
-  "author": "",
+  "author": "Evan Corl",
+  "private": true,
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.21.0",
