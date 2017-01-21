@@ -1,7 +1,7 @@
 import express from 'express';
 import webpack from 'webpack';
 
-import { IS_DEV } from './config/environment';
+import { IS_DEV, PORT } from './config/environment';
 import webpackMiddleware from './server/middleware/webpack';
 import routingMiddleware from './server/middleware/routing';
 import webpackDevConfig from './config/webpack.dev';
@@ -18,6 +18,8 @@ if (IS_DEV) {
 
 app.use(routingMiddleware);
 
-app.listen(3000, () => {
-  console.log('Listening at http://localhost:3000/');
+const server = app.listen(PORT || 3000, () => {
+  const { port } = server.address();
+
+  console.log(`Server is now running on port ${port}.`);
 });
