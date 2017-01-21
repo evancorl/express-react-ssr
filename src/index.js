@@ -1,18 +1,18 @@
 import express from 'express';
 import webpack from 'webpack';
 
-import { isDev } from './config/environment';
+import { IS_DEV } from './config/environment';
 import webpackMiddleware from './server/middleware/webpack';
 import routingMiddleware from './server/middleware/routing';
 import webpackDevConfig from './config/webpack.dev';
 import webpackProdConfig from './config/webpack.prod';
 
-const webpackConfig = isDev ? webpackDevConfig : webpackProdConfig;
+const webpackConfig = IS_DEV ? webpackDevConfig : webpackProdConfig;
 const webpackBundler = webpack(webpackConfig);
 
 const app = express();
 
-if (isDev) {
+if (IS_DEV) {
   app.use(webpackMiddleware(webpackConfig, webpackBundler));
 }
 
