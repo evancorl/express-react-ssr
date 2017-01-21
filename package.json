@@ -5,13 +5,15 @@
   "main": "./server.js",
   "scripts": {
     "lint": "eslint . --ext .js",
-    "dev": "NODE_ENV=development; node server.js",
-    "start": "NODE_ENV=production; node server.js"
+    "build": "babel src --out-dir public/build",
+    "dev": "NODE_ENV=development; node public/build",
+    "start": "NODE_ENV=production; node public/build"
   },
   "author": "Evan Corl",
   "private": true,
   "license": "ISC",
   "devDependencies": {
+    "babel-cli": "^6.22.2",
     "babel-core": "^6.21.0",
     "babel-eslint": "^7.1.1",
     "babel-loader": "^6.2.10",
@@ -33,10 +35,12 @@
     "webpack-merge": "^2.4.0"
   },
   "dependencies": {
+    "bluebird": "^3.4.7",
     "dotenv": "^4.0.0",
     "express": "^4.14.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
-    "react-router": "^4.0.0-alpha.6"
+    "react-router": "^4.0.0-alpha.6",
+    "react-router-addons-routes": "0.0.3"
   }
 }

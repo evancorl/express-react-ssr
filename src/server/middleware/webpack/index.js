@@ -1,7 +1,7 @@
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 
-const webpackHot = (webpackConfig, webpackBundler) => (
+const webpackMiddleware = (webpackConfig, webpackBundler) => (
   [
     webpackDevMiddleware(webpackBundler, {
       publicPath: webpackConfig.output.publicPath,
@@ -10,4 +10,4 @@ const webpackHot = (webpackConfig, webpackBundler) => (
   ]
 );
 
-export default webpackHot;
+export default webpackMiddleware;

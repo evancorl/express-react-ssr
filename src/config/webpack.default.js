@@ -1,7 +1,7 @@
 import { join } from 'path';
 import webpack from 'webpack';
 
-import directories from './src/config/directories';
+import directories from './directories';
 
 const webpackDefaultConfig = {
   entry: [
