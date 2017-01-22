@@ -8,6 +8,6 @@ const reactRoot = document.getElementById('react-root');
 
 render(
   <BrowserRouter>
-    <App />
+    <App {...window.INITIAL_STATE} />
   </BrowserRouter>,
   reactRoot);

@@ -5,6 +5,9 @@
   </head>
   <body>
     <div id="react-root"><%-root%></div>
+    <script>
+      window.INITIAL_STATE = <%-initialState %>
+    </script>
     <script src="<%-bundleSrc%>"></script>
   </body>
 </html>

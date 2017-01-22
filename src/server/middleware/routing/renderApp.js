@@ -4,13 +4,13 @@ import { ServerRouter } from 'react-router';
 
 import App from '../../../client/components/App';
 
-const renderApp = ({ url }, context) => {
+const renderApp = ({ url }, context, initialState) => {
   const html = renderToString(
     <ServerRouter
       location={url}
       context={context}
     >
-      <App />
+      <App {...initialState} />
     </ServerRouter>);
 
   return html;
