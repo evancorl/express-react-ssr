@@ -1,3 +1,4 @@
+import Helmet from 'react-helmet';
 import { createServerRenderContext } from 'react-router';
 import serialize from 'serialize-javascript';
 
@@ -9,6 +10,7 @@ const handleRoute = (response, status, html, initialState) => {
   response
     .status(status)
     .render('index', {
+      helmet: Helmet.rewind(),
       root: html,
       initialState: serialize(initialState),
       bundleSrc: IS_DEV ? '/dev/client/index.js' : '/client/index.js',
@@ -29,7 +31,9 @@ const routingMiddleware = (request, response) => {
     if (redirect) {
       handleRedirect(response, redirect);
     } else if (missed) {
-      handleRoute(response, 200, html, initialState);
+      const htmlWithNewContext = renderApp(request, context);
+
+      handleRoute(response, 200, htmlWithNewContext, initialState);
     } else {
       handleRoute(response, 400, html, initialState);
     }
