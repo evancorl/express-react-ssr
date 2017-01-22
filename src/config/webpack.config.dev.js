@@ -8,6 +8,9 @@ const webpackDevConfig = merge(webpackDefaultConfig, {
   entry: [
     'webpack-hot-middleware/client',
   ],
+  output: {
+    publicPath: '/dev',
+  },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
   ],

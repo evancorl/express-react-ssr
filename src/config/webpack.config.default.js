@@ -11,7 +11,7 @@ const webpackDefaultConfig = {
   output: {
     filename: 'client/index.js',
     path: directories.public,
-    publicPath: '/public/',
+    publicPath: '/public',
   },
   plugins: [
     new webpack.optimize.OccurrenceOrderPlugin(),

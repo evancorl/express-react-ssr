@@ -1,12 +1,16 @@
 import { createServerRenderContext } from 'react-router';
 
+import { IS_DEV } from '../../../config/environment';
 import renderApp from './renderApp';
 import runRouteTasks from './runRouteTasks';
 
 const handleRoute = (response, html) => {
   response
     .status(200)
-    .send(html);
+    .render('index', {
+      root: html,
+      bundleSrc: IS_DEV ? '/dev/client/index.js' : '/client/index.js',
+    });
 };
 
 const handleRedirect = (response, { pathname, search }) => {

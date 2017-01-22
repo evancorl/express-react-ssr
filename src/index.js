@@ -1,5 +1,6 @@
 import express from 'express';
 
+import directories from './config/directories';
 import { IS_DEV, PORT } from './config/environment';
 import routingMiddleware from './server/middleware/routing';
 import webpackMiddleware from './server/middleware/webpack';
@@ -10,7 +11,13 @@ if (IS_DEV) {
   app.use(webpackMiddleware());
 }
 
-app.use(routingMiddleware);
+app
+  .set('view engine', 'ejs')
+  .set('views', directories.views);
+
+app
+  .use(express.static('public'))
+  .use(routingMiddleware);
 
 const server = app.listen(PORT || 3000, () => {
   const { port } = server.address();
