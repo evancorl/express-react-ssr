@@ -1,6 +1,6 @@
 const routeConfig = [
   {
-    pattern: '/home',
+    pattern: '/',
   },
   {
     pattern: '/test',
