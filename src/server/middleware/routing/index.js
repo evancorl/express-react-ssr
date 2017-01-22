@@ -4,9 +4,9 @@ import { IS_DEV } from '../../../config/environment';
 import renderApp from './renderApp';
 import runRouteTasks from './runRouteTasks';
 
-const handleRoute = (response, html) => {
+const handleRoute = (response, status, html) => {
   response
-    .status(200)
+    .status(status)
     .render('index', {
       root: html,
       bundleSrc: IS_DEV ? '/dev/client/index.js' : '/client/index.js',
@@ -15,14 +15,6 @@ const handleRoute = (response, html) => {
 
 const handleRedirect = (response, { pathname, search }) => {
   response.redirect(302, pathname + search);
-};
-
-const handleMissed = (request, response, context) => {
-  const htmlWithNewContext = renderApp(request, context);
-
-  response
-    .status(404)
-    .send(htmlWithNewContext);
 };
 
 const routingMiddleware = (request, response) => {
@@ -35,9 +27,9 @@ const routingMiddleware = (request, response) => {
     if (redirect) {
       handleRedirect(response, redirect);
     } else if (missed) {
-      handleMissed(request, response, context);
+      handleRoute(response, 200, html);
     } else {
-      handleRoute(response, html);
+      handleRoute(response, 400, html);
     }
   });
 };

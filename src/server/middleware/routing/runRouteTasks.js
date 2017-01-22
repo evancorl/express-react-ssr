@@ -1,5 +1,5 @@
 import Promise from 'bluebird';
-import matchRoutesToLocation from 'react-router-addons-routes/matchRoutesToLocation';
+import { matchRoutesToLocation } from 'react-router-addons-routes';
 
 import routeConfig from './config';
 

@@ -7,6 +7,7 @@ const Layout = ({ children }) => (
     <ul>
       <li><Link to="/">Home</Link></li>
       <li><Link to="/test">Test</Link></li>
+      <li><Link to="/not-found">Not Found</Link></li>
     </ul>
     {children}
   </div>
