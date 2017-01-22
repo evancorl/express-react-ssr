@@ -1,7 +1,7 @@
 import webpack from 'webpack';
 import merge from 'webpack-merge';
 
-import webpackDefaultConfig from './webpack.default';
+import webpackDefaultConfig from './webpack.config.default';
 
 const webpackProdConfig = merge(webpackDefaultConfig, {
   bail: true,

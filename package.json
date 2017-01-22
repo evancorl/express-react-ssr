@@ -5,9 +5,10 @@
   "main": "./server.js",
   "scripts": {
     "lint": "eslint . --ext .js",
-    "build": "babel src --out-dir public/build",
-    "dev": "NODE_ENV=development; node public/build",
-    "start": "NODE_ENV=production; node public/build"
+    "babel": "babel src --out-dir dist",
+    "webpack": "NODE_ENV=production webpack --config src/config/webpack.config.prod.babel.js -p",
+    "dev": "NODE_ENV=development node dist",
+    "start": "NODE_ENV=production node dist"
   },
   "author": "Evan Corl",
   "private": true,

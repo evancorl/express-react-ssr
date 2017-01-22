@@ -9,7 +9,7 @@ const webpackDefaultConfig = {
     join(directories.src, 'client/index.js'),
   ],
   output: {
-    filename: 'bundle.js',
+    filename: 'client/index.js',
     path: directories.public,
     publicPath: '/public/',
   },
