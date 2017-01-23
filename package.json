@@ -7,7 +7,7 @@
     "lint": "eslint . --ext .js",
     "babel": "babel src --out-dir dist",
     "webpack": "NODE_ENV=production webpack --config src/config/webpack.config.prod.babel.js -p",
-    "dev": "NODE_ENV=development nodemon --exec babel-node src/index.js",
+    "dev": "NODE_ENV=development nodemon --exec babel-node src",
     "prestart": "npm run babel; npm run webpack",
     "start": "NODE_ENV=production node dist"
   },
