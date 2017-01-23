@@ -12,7 +12,9 @@ const webpackDevConfig = merge(webpackDefaultConfig, {
     publicPath: '/dev',
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
+    new webpack.HotModuleReplacementPlugin({
+      quiet: true,
+    }),
   ],
 });
 

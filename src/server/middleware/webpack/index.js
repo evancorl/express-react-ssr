@@ -10,6 +10,7 @@ const webpackMiddleware = () => {
 
   return [
     webpackDevMiddleware(webpackBundler, {
+      noInfo: true,
       publicPath: webpackDevConfig.output.publicPath,
     }),
     webpackHotMiddleware(webpackBundler),

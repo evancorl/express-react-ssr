@@ -11,3 +11,7 @@ render(
     <App {...window.INITIAL_STATE} />
   </BrowserRouter>,
   reactRoot);
+
+if (module.hot) {
+  module.hot.accept();
+}
