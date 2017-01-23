@@ -14,7 +14,7 @@ const runRouteTasks = ({ originalUrl, query }) => {
   const runningTasks = [];
 
   routesWithTasks.forEach(({ pattern, tasks }) => {
-    routeData[pattern] = { params, query };
+    routeData[pattern] = {};
 
     tasks.forEach((runTask) => {
       const runningTask = Promise.resolve(runTask(params, query)).then((taskData) => {
@@ -28,7 +28,7 @@ const runRouteTasks = ({ originalUrl, query }) => {
     });
   });
 
-  return Promise.all(runningTasks).then(() => routeData);
+  return Promise.all(runningTasks).then(() => ({ routeData, params, query }));
 };
 
 export default runRouteTasks;
