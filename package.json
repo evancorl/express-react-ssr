@@ -1,7 +1,7 @@
 {
-  "name": "rube",
+  "name": "react-express-ssr-boilerplate",
   "version": "0.0.1",
-  "description": "Rube",
+  "description": "Boilerplate for React, Express, and SSR",
   "main": "./dist/index.js",
   "scripts": {
     "lint": "eslint . --ext .js",
@@ -13,7 +13,6 @@
     "start": "NODE_ENV=production node dist"
   },
   "author": "Evan Corl",
-  "private": true,
   "license": "ISC",
   "devDependencies": {
     "babel-cli": "^6.22.2",
