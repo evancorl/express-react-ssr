@@ -3,8 +3,8 @@ import { matchRoutesToLocation } from 'react-router-addons-routes';
 
 import routeConfig from './config';
 
-const runRouteTasks = (request) => {
-  const location = { pathname: request.originalUrl };
+const runRouteTasks = ({ originalUrl, query }) => {
+  const location = { pathname: originalUrl };
   const { matchedRoutes, params } = matchRoutesToLocation(routeConfig, location);
 
   const routesWithTasks = matchedRoutes
@@ -14,10 +14,10 @@ const runRouteTasks = (request) => {
   const runningTasks = [];
 
   routesWithTasks.forEach(({ pattern, tasks }) => {
-    routeData[pattern] = { params };
+    routeData[pattern] = { params, query };
 
     tasks.forEach((runTask) => {
-      const runningTask = Promise.resolve(runTask(params)).then((taskData) => {
+      const runningTask = Promise.resolve(runTask(params, query)).then((taskData) => {
         routeData[pattern] = {
           ...routeData[pattern],
           ...taskData,
