@@ -7,13 +7,15 @@ import renderApp from './renderApp';
 import runRouteTasks from './runRouteTasks';
 
 const handleRoute = (response, status, html, initialState) => {
+  const bundlePublicPath = IS_DEV ? '/dev' : '';
+
   response
     .status(status)
     .render('index', {
       helmet: Helmet.rewind(),
       root: html,
       initialState: serialize(initialState),
-      bundleSrc: IS_DEV ? '/dev/client/index.js' : '/client/index.js',
+      bundleSrc: `${bundlePublicPath}/client/bundle.js`,
     });
 };
 
