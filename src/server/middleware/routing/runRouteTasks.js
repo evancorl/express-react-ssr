@@ -1,11 +1,11 @@
 import Promise from 'bluebird';
 import { matchRoutesToLocation } from 'react-router-addons-routes';
 
-import routeConfig from './config';
+import routeTasks from './routeTasks';
 
 const runRouteTasks = ({ originalUrl, query }) => {
   const location = { pathname: originalUrl };
-  const { matchedRoutes, params } = matchRoutesToLocation(routeConfig, location);
+  const { matchedRoutes, params } = matchRoutesToLocation(routeTasks, location);
 
   const routesWithTasks = matchedRoutes
     .filter(route => route.tasks && route.tasks.length);
