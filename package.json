@@ -1,7 +1,7 @@
 {
-  "name": "react-express-ssr-boilerplate",
+  "name": "express-react-ssr",
   "version": "0.0.1",
-  "description": "Boilerplate for React, Express, and SSR",
+  "description": "Boilerplate for Express, React, and SSR",
   "main": "./dist/index.js",
   "scripts": {
     "lint": "eslint . --ext .js",
